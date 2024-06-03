@@ -5,9 +5,11 @@ import Button from "./Button";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
+import Generating from "./Generating";
+import Notification from "./Notification";
+import CompanyLogos from "./CompanyLogos";
 const Hero = () => {
-
-    const parallaxRef = useRef(null)
+  const parallaxRef = useRef(null);
   return (
     <Section
       className="pt-[12rem] -mt-[5.25rem]"
@@ -17,9 +19,9 @@ const Hero = () => {
       id="hero"
     >
       <div className="container relative" ref={parallaxRef}>
-        <div className="relative text-center  max-w-[62rem] mx-auto mb-[3.875rem] md:mb-20 lg:mb-[6rem] z-1">
+        <div className="relative text-center  max-w-[62rem] mx-auto mb-[3.875rem] md:mb-20 lg:mb-[6.25rem] z-1">
           <h1 className="h1 mb-6">
-            Explore the Possiblities of&nbsp;AI&nbsp; Chatting with
+            Explore the Possiblities of&nbsp;AI&nbsp;Chatting with&nbsp;
             <span className="inline-block relative">
               BrainWave
               <img
@@ -41,7 +43,7 @@ const Hero = () => {
           </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
-          <div className="rounded-xl z-1 p-0.5 bg-conic-gradient">
+          <div className="relative rounded-2xl z-1 p-0.5 bg-conic-gradient">
             <div className="relative bg-n-8 rounded-[1rem] z-1">
               <div className="h-[1.4rem] rounded-t-[0.9rem] bg-n-10" />
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
@@ -52,19 +54,27 @@ const Hero = () => {
                   width={1024}
                   height={490}
                 />
+
+                <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
+
                 <ScrollParallax isAbsolutelyPositioned>
-                    <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] p-1  bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
-                        {heroIcons.map((item,index)=>(
-                            <li key={index} className="p-5">
-                                <img src={item} alt="item"
-                                width={24}
-                                height={25} />
-                            </li>
-                        ))}
-                    </ul>
+                  <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] p-1  bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2xl xl:flex">
+                    {heroIcons.map((item, index) => (
+                      <li key={index} className="p-5">
+                        <img src={item} alt="item" width={24} height={25} />
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollParallax>
+                <ScrollParallax isAbsolutelyPositioned>
+                  <Notification
+                    className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
+                    title="Code generation"
+                  />
                 </ScrollParallax>
               </div>
             </div>
+            <Gradient />
           </div>
           <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%] ">
             <img
@@ -75,8 +85,11 @@ const Hero = () => {
               height={1800}
             />
           </div>
+          <BackgroundCircles />
         </div>
+        <CompanyLogos className=" hidden z-10 relative mt-20 lg:block " />
       </div>
+      <BottomLine />
     </Section>
   );
 };
