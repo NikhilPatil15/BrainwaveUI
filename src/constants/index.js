@@ -60,13 +60,13 @@ import {
     {
       id: "4",
       title: "New account",
-      url: "#signup",
+      url: "#",
       onlyMobile: true,
     },
     {
       id: "5",
       title: "Sign in",
-      url: "#login",
+      url: "#",
       onlyMobile: true,
     },
   ];
